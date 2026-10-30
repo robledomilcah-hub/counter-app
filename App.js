@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 
-// Listahan ng mga buttons (gagamitin natin sa .map())
 const BUTTONS = [
   { id: 'sub', label: '-', color: '#e74c3c' },
   { id: 'reset', label: 'Reset', color: '#7f8c8d' },
   { id: 'add', label: '+', color: '#2ecc71' },
 ];
 
-// Component 1: Display - nagpapakita ng number (gets "value" via props)
 function Display({ value }) {
   return (
     <View style={styles.display}>
@@ -17,7 +15,6 @@ function Display({ value }) {
   );
 }
 
-// Component 2: CounterButton - isang button (gets label, color, onPress via props)
 function CounterButton({ label, color, onPress }) {
   return (
     <Pressable
@@ -25,7 +22,7 @@ function CounterButton({ label, color, onPress }) {
       style={({ pressed }) => [
         styles.button,
         { backgroundColor: color },
-        pressed && styles.buttonPressed, // press feedback
+        pressed && styles.buttonPressed, 
       ]}
     >
       <Text style={styles.buttonText}>{label}</Text>
@@ -33,7 +30,6 @@ function CounterButton({ label, color, onPress }) {
   );
 }
 
-// Component 3: Counter (main) - nandito ang state at logic
 export default function Counter() {
   const [count, setCount] = useState(0); // state ng current value
 
